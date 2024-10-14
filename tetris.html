@@ -1,6 +1,7 @@
 <html>
     <head>
-        <title>javascript를 활용한 테트리스게임</title>
+        <title>javascript 테트리스게임</title>
+        <link rel="icon" href="tetrisIcon.png" type="image/x-icon">
         <!-- 제이쿼리 CDN은 https://code.jquery.com/ -->
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <style>
@@ -33,6 +34,8 @@
             ALL_BLOCK[5] = [["1:1", "2:1", "1:0", "2:0"]];   
 
             var ALL_TD = [];
+
+            //블록생성 함수
             function makeBlock(col, row) {
                 for(var i=1; i <= row; i++) {  //세로
                     document.write("<tr>");
@@ -57,16 +60,16 @@
                     if(gubun == "UP") { 
                         if(ALL_BLOCK[NOW_BLOCK.shape].length == 1) {
                             return false;
-                        }
+                        }//사각형은 제외 (모든 모양이 같다)
 
                         var is_stop = false;
                         var new_current_blocks = [];
                         BLOCK_POSITION_SHAPE++;
                         if(!ALL_BLOCK[NOW_BLOCK.shape][BLOCK_POSITION_SHAPE]) {
                             BLOCK_POSITION_SHAPE = 0;
-                        }
+                        }// 만약 더이상 바뀔 블록이 없다면 0으로 간다
                         for(var i=0; i < ALL_BLOCK[NOW_BLOCK.shape][BLOCK_POSITION_SHAPE].length; i++) {
-                            var current_standard_x = NOW_BLOCK.current_blocks[0].attr("x");
+                            var current_standard_x = NOW_BLOCK.current_blocks[0].attr("x");//current_standard_x = 현재의 X 위치
                             var current_standard_y = NOW_BLOCK.current_blocks[0].attr("y");
 
                             var block_xy = ALL_BLOCK[NOW_BLOCK.shape][BLOCK_POSITION_SHAPE][i].split(":");
@@ -94,11 +97,11 @@
 
                         NOW_BLOCK.current_blocks.forEach(function(item, index){
                             item.attr("class", "space");
-                        })
+                        }) // 바꾸기 전의 블록은 공백 
 
                         new_current_blocks.forEach(function(item, index){
                             item.attr("class", "block");
-                        })
+                        })  // 바꾼 후의 블록들은 블록처리
 
                         NOW_BLOCK.current_blocks = new_current_blocks;
                     }                    
@@ -124,15 +127,18 @@
                             return false;
                         }
 
-
+                        //현재의 블록을 투명하게
                         NOW_BLOCK.current_blocks.forEach(function(item, index){
                             item.attr("class","space");
                         })
+                        //새로운 블록이 보이게
                         new_current_blocks.forEach(function(item, index){
                             item.attr("class","block");
                         })
                         NOW_BLOCK.current_blocks = new_current_blocks;
                     }
+
+                    //왼쪽키 이동
                     else if(gubun == "LEFT") {
                         var new_current_blocks = [];
                         var is_stop = false;
@@ -173,6 +179,7 @@
                 }
             }
 
+            //아래로 이동
             function moveDown() {
                 var new_current_blocks = [];
                 var is_stop = false;
@@ -298,25 +305,22 @@
                 //1초에 한번씩 내리기
                 intervalDown();
 
+                
+                //블록 움직이기
                 $(document).keydown(function(e){
                     if(e.which == 38) { //위 방향의 키를 누름
-//                        alert("위")
                         moveBlock("UP");
                     }
                     else if(e.which == 39) {
-//                        alert("오른쪽")
                         moveBlock("RIGHT");
                     }
                     else if(e.which == 37) {
-//                        alert("왼쪽")
                         moveBlock("LEFT");
                     }
                     else if(e.which == 40) {
-//                        alert("아래쪽")
                         moveBlock("DOWN");
                     }
                     else if(e.which == 32) {
-//                        alert("스페이스바")
                         moveBlock("SPACEBAR");
                     }
                 });
@@ -324,8 +328,8 @@
 
             //랜덤 숫자 생성 함수
             function rand(min, max) {  
-                //Math.random() : 0~1사이의 숫자를 랜덤하게 가지고 오는 자바스크립트 함수
-                //Math.floor : 소수점 자리를 버려서 정수로 만듬
+                //Math.random() : 0~1사이의 숫자를 랜덤하게 가지고 옴
+                //Math.floor : 소수점 자리를 버려서 정수로 변환
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             }
 
@@ -371,12 +375,11 @@
                 //ALL_BLOCK[nowblock.shape]
                 var current_blocks = [];
                 for(var i=0; i < ALL_BLOCK[nowblock.shape][BLOCK_POSITION_SHAPE].length; i++) {
-                    // ALL_BLOCK[nowblock.shape][0]  ->   "0:0"
                     var block_xy = ALL_BLOCK[nowblock.shape][BLOCK_POSITION_SHAPE][i].split(":");
                     var block_x  = Number(block_xy[0]) + INIT_X_POSITION;
                     var block_y  = Number(block_xy[1]) + INIT_Y_POSITION;
 
-                    $("#" + block_x + "_" + block_y).attr("class", "block");
+                    $("#" + block_x + "_" + block_y).attr("class", "block"); //속성을 바꾸기 
                     current_blocks.push($("#" + block_x + "_" + block_y));
                 }
                 return current_blocks;

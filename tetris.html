@@ -179,7 +179,7 @@
                 }
             }
 
-            //아래로 이동
+            //아래로 이동시키는 함수
             function moveDown() {
                 var new_current_blocks = [];
                 var is_stop = false;
@@ -191,7 +191,7 @@
                     else {
                         if($("#"+new_id).attr("class") == "block" && !isExistNowBlock(new_id)) {
                             is_stop = true;
-                        }
+                        }//블록이 겹치면 새로운 블록을 나오게 함
                     }
                     new_current_blocks.push($("#"+new_id));
                 })
@@ -283,7 +283,8 @@
                     }
                 }
             }
-
+            
+            //충돌방지 검사 
             function isExistNowBlock(id) {
                 var is_exist = false;
                 NOW_BLOCK.current_blocks.forEach(function(item, index){
@@ -355,6 +356,9 @@
                 $("#divNextImg").html(`<img src="${NEXT_BLOCK_SHAPE}.gif" style="width:100%; height:200px">`);
             }
 
+
+
+            //블록 내리기
             var interval = null;
             var interval_miliseconds = 1000;
             var minimal_miliseconds = 100;
@@ -364,7 +368,7 @@
                 }
 
                 interval = setInterval(() => {
-                   // 블록을 하나씩 내리는 것 
+                   // 1초당 블록을 하나씩내림 
                    moveDown();
                 }, interval_miliseconds);
             }

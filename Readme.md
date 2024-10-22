@@ -57,3 +57,12 @@
 ☞ up키를 누르면 변경이됨 (current_standard로 현재의 위치 유지) (블록변화 제어) <br/>
 ☞ 바꾸기전의 블록 배경색 흰색 바꾼 블록들은 하늘색으로 <br/>
 ☞ 사각형 모양은 바꿔도 모양바뀜이 없기 때문에 제외<br/>
+
+
+## 1초마다 블록 내려오기  <br/>
+
+☞ setInterval을 사용해서 1초 단위로 movedown함수를 이용해서 아래로 이동<br/>
+☞ 새로운 블록도 계속적으로 내려옴 newBlock실행<br/>
+☞ 다른 블록과의 구분 DOWN, RIGHT, LEFT에 모두 적용 block형태로 되어 있거나 isExistNowBlock을 활용<br/>
+
+

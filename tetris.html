@@ -5,12 +5,18 @@
         <!-- 제이쿼리 CDN은 https://code.jquery.com/ -->
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <style>
+            body {
+                background-image: url('./background.png'); 
+                background-size: cover; 
+                background-position: center;
+                background-repeat: no-repeat; 
+            }
             .block {
                 width:25px;
                 height:25px;
                 border-bottom:1px solid #98a3f7;
                 border-right:1px solid #98a3f7;                
-                background-color:skyblue;
+                background-color:#cf98f7;
             }
             .space {
                 width:25px;
@@ -334,11 +340,12 @@
                 return Math.floor(Math.random() * (max - min + 1)) + min;
             }
 
-            var NEXT_BLOCK_SHAPE = null;
+            var NEXT_BLOCK_SHAPE = null; //새로운 블록 
             function newBlock() {
                 //랜덤하게 가지고 올 것
                 BLOCK_POSITION_SHAPE = 0;
 
+                //다음 블록 이미지 불러오기
                 if(!NEXT_BLOCK_SHAPE) {
                     NOW_BLOCK.shape = rand(0,ALL_BLOCK.length-1);
                     NEXT_BLOCK_SHAPE = rand(0,ALL_BLOCK.length-1);
@@ -392,7 +399,7 @@
     </head>
     <body>
         <div style="width:509px; height:550px; margin:0px auto; margin-top:50px">
-            <div style="height:550px; border-left:1px solid #98a3f7; border-top:1px solid #98a3f7; border-right:1px solid #98a3f7; border-bottom:1px solid #98a3f7; float:left; padding:0px">
+            <div style="height:550px; border-left:1px solid #cf98f7; border-top:1px solid #cf98f7; border-right:1px solid #cf98f7; border-bottom:1px solid #cf98f7; float:left; padding:0px">
                 <!-- 가로 x 세로 : 12 x 22 -->
                 <table cellspacing=0 cellpadding=0 style="width:300px" align=center>
                 <script>
@@ -400,10 +407,10 @@
                 </script>                                                                                                
                 </table>
             </div>
-            <div style="width:200px; height:550px; background-color:white; float:left; margin-top:10px">
+            <div style="width:200px; height:550px; background-color:rgb(174, 189, 194); float:left; margin-top:0px">
                 <div style="width:200px; height:50px; text-align:center; margin-bottom:15px">
-                    <div>Level</div>
-                    <div id="level">1</div>
+                    <div>득점방법</div>
+                    <div id="level">블록 한줄을 파괴하면 <br/> 100점 입니다!</div>
                 </div>            
 
                 <div style="width:200px; height:40px; text-align:center; margin-bottom:15px">
@@ -412,7 +419,7 @@
                 </div>            
 
                 <div style="width:200px; height:30px; text-align:center">
-                    Next
+                    다음블록
                 </div>            
                 <div style="width:200px; height:200px" id="divNextImg">
                 

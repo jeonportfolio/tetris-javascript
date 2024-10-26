@@ -65,4 +65,18 @@
 ☞ 새로운 블록도 계속적으로 내려옴 newBlock실행<br/>
 ☞ 다른 블록과의 구분 DOWN, RIGHT, LEFT에 모두 적용 block형태로 되어 있거나 isExistNowBlock을 활용<br/>
 
+## 스페이스 바 한번에 내리기 <br/>
+
+☞ while문을 이용해서 true값 설정 연속적인 movedown()<br/>
+
+## 게임 종료하기 <br/>
+
+☞ foreach문을 활용해 모든 블록을 확인 한 후 y좌표가 1보다 작으면 종료<br/>
+☞ 블록이 내려오는 것이 종료 clearInterval()사용<br/>
+
+## 다음블록 미리보여주기 <br/>
+
+☞ 
+
+
 

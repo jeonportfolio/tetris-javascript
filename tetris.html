@@ -52,7 +52,7 @@
                             </td>
                         `;// 좌표표시
                         document.write(block_html);
-                        X_array.push(j + "_" + i);
+                        X_array.push(j + "_" + i); // 가로축의 여부를 제어하기 위함
                     }
                     document.write("</tr>");                        
                     ALL_TD.push(X_array);
@@ -232,14 +232,15 @@
                 }
                 return return_value;
             }
-
+    
+            // 한 줄을 채우면 부서짐 
             function checkAllLine() {
                 for(var row=ALL_TD.length-1; row >=0; row--) {
                     var is_all_correct = true;
                     for(var col=0; col < ALL_TD[row].length; col++) {
                         var this_id = ALL_TD[row][col];
                         var this_obj = $("#"+this_id);
-                        if(this_obj.attr("class") == "space") {
+                        if(this_obj.attr("class") == "space") { //공백여부 확인
                             is_all_correct = false;
                         }
                     }
@@ -263,15 +264,16 @@
                             }
                         }
                         
-                        row++;
+                        row++;// 한줄 아래로 이동 
 
+                        //한줄이 내려옴으로 맨위의 줄은 하얀색으로 변경
                         for(var j=0; j < ALL_TD[0].length; j++) {
                             var this_id = ALL_TD[0][j];
                             var this_obj = $("#"+this_id);
                             this_obj.attr("class", "space");
                         }
 
-                        //한줄내릴때마다 Score 1000추가
+                        //한줄내릴때마다 Score 100추가
                         var current_score = $("#score").html();
                         current_score = Number(current_score) + 100;
                         $("#score").html(current_score);

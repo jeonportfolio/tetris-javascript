@@ -76,7 +76,11 @@
 
 ## 다음블록 미리보여주기 <br/>
 
-☞ 
 
+## 한줄 완성되면 없애기 & 점수 반영하기<br/>
 
-
+☞ checkAllLine으로 한줄이 채워지면 제어한다.<br/>
+☞ var ALL_TD = [] 과 X_array.push(j + "_" + i)를 통해 2차원 배열을 생성한다.<br/>
+☞  if(this_obj.attr("class") == "space") -> 공백 확인 공백이 없으면 row를 공백처리<br/>
+☞  space효과로 없어지는 효과를 만든다. -> row는 1을 추가하여 아래로 내려오게 이동 <br/>
+☞

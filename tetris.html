@@ -278,8 +278,8 @@
                         current_score = Number(current_score) + 100;
                         $("#score").html(current_score);
 
+                        //레벨 올리기
                         if(current_score % 1000 == 0) {
-                            //레벨 올리기
                             var current_level = $("#level").html();
                             current_level = Number(current_level) + 1;
                             $("#level").html(current_level);
@@ -370,7 +370,7 @@
             //블록 내리기
             var interval = null;
             var interval_miliseconds = 1000;
-            var minimal_miliseconds = 100;
+            var minimal_miliseconds = 100;//최대속도 제한
             function intervalDown() {
                 if(interval_miliseconds < minimal_miliseconds) {
                     interval_miliseconds = minimal_miliseconds;
@@ -400,7 +400,7 @@
         </script>
     </head>
     <body>
-        <div style="width:509px; height:550px; margin:0px auto; margin-top:50px">
+        <div style="width:505px; height:550px; margin:0px auto; margin-top:50px">
             <div style="height:550px; border-left:1px solid #cf98f7; border-top:1px solid #cf98f7; border-right:1px solid #cf98f7; border-bottom:1px solid #cf98f7; float:left; padding:0px">
                 <!-- 가로 x 세로 : 12 x 22 -->
                 <table cellspacing=0 cellpadding=0 style="width:300px" align=center>
@@ -411,8 +411,8 @@
             </div>
             <div style="width:200px; height:550px; background-color:rgb(174, 189, 194); float:left; margin-top:0px">
                 <div style="width:200px; height:50px; text-align:center; margin-bottom:15px">
-                    <div>득점방법</div>
-                    <div id="level">블록 한줄을 파괴하면 <br/> 100점 입니다!</div>
+                    <div><가이드></div>
+                    <div id="level">한줄 완성 100점 <br/>1000점=레벨&난이도↑</div>
                 </div>            
 
                 <div style="width:200px; height:40px; text-align:center; margin-bottom:15px">
@@ -421,7 +421,7 @@
                 </div>            
 
                 <div style="width:200px; height:30px; text-align:center">
-                    다음블록
+                    <다음블록>
                 </div>            
                 <div style="width:200px; height:200px" id="divNextImg">
                 

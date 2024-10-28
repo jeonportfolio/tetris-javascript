@@ -81,6 +81,6 @@
 
 ☞ checkAllLine으로 한줄이 채워지면 제어한다.<br/>
 ☞ var ALL_TD = [] 과 X_array.push(j + "_" + i)를 통해 2차원 배열을 생성한다.<br/>
-☞  if(this_obj.attr("class") == "space") -> 공백 확인 공백이 없으면 row를 공백처리<br/>
-☞  space효과로 없어지는 효과를 만든다. -> row는 1을 추가하여 아래로 내려오게 이동 <br/>
-☞
+☞ if(this_obj.attr("class") == "space") -> 공백 확인 공백이 없으면 row를 공백처리<br/>
+☞ space효과로 없어지는 효과를 만든다. -> row는 1을 추가하여 아래로 내려오게 이동 <br/>
+☞ 점수가 1000점이면 레벨이 오른다. -> 레벨이 오를수록 속도가 빨라진다 최대속도는 제한<br/>

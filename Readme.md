@@ -1,5 +1,11 @@
-# 자바스크립트로 테트리스 게임 만들기 <br/>
 
+# 자바스크립트로 테트리스 게임 만들기🙇‍♂️🙇‍♂️🙇‍♀️<br/><br/>
+```plaintext
+    자바스크립스틀 활용한 테트리스게임입니다.
+```
+<a herf="https://defendingearth.netlify.app/">슈팅게임 바로가기(클릭)</a><br/>
+<img src="./tetris.png" alt="이미지 설명" width="400"/>
+ 
 ☞ HTML, CSS, Java Script 사용 <br/>
 
 ## 테이블 생성 <br/>
